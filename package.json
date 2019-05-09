@@ -1,0 +1,49 @@
+{
+    "name": "webpack",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@babel/core": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/preset-react": "^7.0.0",
+        "autoprefixer": "^9.5.1",
+        "babel-loader": "^8.0.5",
+        "clean-webpack-plugin": "^2.0.2",
+        "css-loader": "^2.1.1",
+        "eslint": "^5.16.0",
+        "eslint-loader": "^2.1.2",
+        "file-loader": "^3.0.1",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "imagemin": "^6.1.0",
+        "imagemin-gifsicle": "^6.0.1",
+        "imagemin-mozjpeg": "^8.0.0",
+        "imagemin-pngquant": "^7.0.0",
+        "imagemin-svgo": "^7.0.0",
+        "img-loader": "^3.0.1",
+        "less": "^3.9.0",
+        "less-loader": "^5.0.0",
+        "mini-css-extract-plugin": "^0.6.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.1",
+        "postcss-loader": "^3.0.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-loadable": "^5.5.0",
+        "react-redux": "^7.0.3",
+        "style-loader": "^0.23.1",
+        "url-loader": "^1.1.2",
+        "webpack": "^4.30.0",
+        "webpack-cli": "^3.3.2",
+        "webpack-dev-server": "^3.3.1",
+        "workbox-webpack-plugin": "^4.3.1"
+    },
+    "scripts": {
+        "start": "webpack-dev-server --config ./config/webpack.dev.js",
+        "dev": "webpack-dev-server --config ./config/webpack.dev.js",
+        "build": "webpack  --config  ./config/webpack.prod.js "
+    },
+    "devDependencies": {
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0"
+    }
+}
