@@ -5,22 +5,32 @@ import { withRouter } from 'react-router-dom'
 class App extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            isShow: true
+        }
     }
     Focus = () => {
+        this.setState({
+            isShow: false
+        })
         this.props.history.push('/search')
     }
     cancel = () => {
-        this.props.history.replace('/home')
+        this.props.history.go(-1)
+        this.setState({
+            isShow: true
+        })
     }
 
     render() {
+        const { isShow } = this.state
         return (
             <div className="title-container">
-                <i className="material-icons " >subject</i>
+                {isShow ? <i className="material-icons " >subject</i> : ''}
                 <div className="title-input">
                     <SearchBar placeholder="全民湿巾品牌" maxLength={8} onFocus={this.Focus} onCancel={this.cancel} />
                 </div>
-                <span>登录</span>
+                {isShow ? <span>登录</span> : ''}
             </div>
         )
     }

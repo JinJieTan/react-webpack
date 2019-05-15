@@ -9,7 +9,6 @@ import './assets/index.less'
 ReactDOM.render(
     <HashRouter>
         <Provider store={store}><App ></App></Provider>
-
     </HashRouter>,
     document.querySelector('#root')
 )

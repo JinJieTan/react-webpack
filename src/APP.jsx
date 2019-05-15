@@ -26,8 +26,8 @@ export default class App extends React.Component {
                     <NavLink to="/home" activeClassName="active">首页</NavLink>
                     <NavLink to="/category" activeClassName="active">分类</NavLink>
                     <NavLink to="/buy" activeClassName="active">拼购</NavLink>
-                    <NavLink to="shopcart" activeClassName="active">购物车</NavLink>
-                    <NavLink to="person" activeClassName="active">个人</NavLink>
+                    <NavLink to="/shopcart" activeClassName="active">购物车</NavLink>
+                    <NavLink to="/person" activeClassName="active">个人</NavLink>
                 </footer>
             </div>
         )
