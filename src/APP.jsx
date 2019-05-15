@@ -21,13 +21,37 @@ export default class App extends React.Component {
                         <Route path="/search" component={Person}></Route>
                         <Redirect to="/home"></Redirect>
                     </Switch>
-                    </div>
+                </div>
                 <footer className="footer">
-                    <NavLink to="/home" activeClassName="active">首页</NavLink>
-                    <NavLink to="/category" activeClassName="active">分类</NavLink>
-                    <NavLink to="/buy" activeClassName="active">拼购</NavLink>
-                    <NavLink to="/shopcart" activeClassName="active">购物车</NavLink>
-                    <NavLink to="/person" activeClassName="active">个人</NavLink>
+                    <NavLink to="/home" activeClassName="active" className="link">
+                        <i className="material-icons">
+                            favorite_border
+                        </i>
+                        <span>首页</span>
+                    </NavLink>
+                    <NavLink to="/category" activeClassName="active" className="link">
+                        <i className="material-icons">
+                            reorder
+                        </i>
+                        <span>分类</span>
+                    </NavLink>
+                    <NavLink to="/buy" activeClassName="active" className="link">
+                        <i className="material-icons">
+                            card_giftcard
+                        </i>
+                        <span>拼购</span>
+                    </NavLink>
+                    <NavLink to="/shopcart" activeClassName="active" className="link">
+                        <i className="material-icons">
+                            bookmark_border
+                        </i>
+                        <span>购物车</span>
+                    </NavLink>
+                    <NavLink to="/person" activeClassName="active" className="link">
+                        <i className="material-icons">
+                            account_box
+                        </i>
+                        <span>个人</span></NavLink>
                 </footer>
             </div>
         )

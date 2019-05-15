@@ -1,7 +1,6 @@
 import React,{Fragment} from 'react'
 import {connect} from 'react-redux'
 import {AsyncKingKongModule} from '../../../redux-file/actions-creators'
-import './index.less'
 class App extends React.Component{
     componentDidMount(){
         this.props.reqKingKongModule()

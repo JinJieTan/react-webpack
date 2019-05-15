@@ -18,9 +18,10 @@ class App extends React.Component {
     }
     componentDidMount() {
         this.props.IndexActivityModule()
-        new BScroll(this.wrap.current,{
-            bounce:false,
-            click:true
+        this.myScroll = new BScroll(this.wrap.current, {
+            bounce: false,
+            click: true,
+            scrollbar: true
         })
     }
     render() {
@@ -28,6 +29,14 @@ class App extends React.Component {
         return (
             <div className="content-wrap" ref={this.wrap}>
                 <div className="content-inner">
+                    <ul className="list">
+                        <li><i className="material-icons "  >face</i></li>
+                        <li className="item1">京</li>
+                        <li className="item2">东</li>
+                        <li className="item3">专</li>
+                        <li className="item4">享</li>
+                        <li><i className="material-icons">face</i></li>
+                    </ul>
                     <Slide></Slide>
                     <Tabs tabs={tabs}
                         initialPage={1}
@@ -46,8 +55,10 @@ class App extends React.Component {
                             })
                         }
                     </Tabs>
-                    <br />
                     <Kingkong></Kingkong>
+                    <div className="main-gif">
+                    <img src="//m.360buyimg.com/mobilecms/jfs/t29767/238/1280638669/118489/8915d2f5/5cdbb7fdNa69c9be3.gif" alt=""/>
+                    </div>
                 </div>
             </div>
         )

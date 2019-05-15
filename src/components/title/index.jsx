@@ -30,7 +30,7 @@ class App extends React.Component {
                 <div className="title-input">
                     <SearchBar placeholder="全民湿巾品牌" maxLength={8} onFocus={this.Focus} onCancel={this.cancel} />
                 </div>
-                {isShow ? <span>登录</span> : ''}
+                {isShow ? <div><span className="deng">登</span><span className="lu">录</span></div> : ''}
             </div>
         )
     }

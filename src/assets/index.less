@@ -36,25 +36,33 @@ body {
             width: 100%;
             height: 80%;
             margin-top: 3rem;
-            padding-bottom:3rem;
+            padding-bottom: 3rem;
         }
 
         .footer {
             width: 100%;
-            height: 10%;
+            height: 3rem;
             position: fixed;
-            bottom:0;
+            bottom: 0;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background-color: skyblue;
             z-index: 99;
+            background-color: #F7F7F7;
+
             a {
                 color: grey;
             }
 
+            .link {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+
             .active {
-                color: red;
+                color: salmon;
             }
         }
     }

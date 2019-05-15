@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const os = require('os')
 module.exports = {
     entry: {
-        app: ['babel-polyfill','./src/index.js'],
+        app: ['babel-polyfill', './src/index.js'],
         vendor: ['react',]
     },
     output: {
