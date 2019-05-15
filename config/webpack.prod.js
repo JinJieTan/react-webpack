@@ -8,7 +8,7 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 const os = require('os')
 module.exports = {
     entry: {
-        app: ['./src/index.js', './src/index.html'],
+        app: ['babel-polifill', './src/index.js'],
         vendor: ['react']
     },
     output: {
@@ -41,26 +41,34 @@ module.exports = {
                             loader: 'babel-loader',
                             options: {
                                 presets: ["@babel/preset-react", ["@babel/preset-env", { "modules": false }]],
-                                plugins: ["@babel/plugin-syntax-dynamic-import"],
+                                plugins: ["@babel/plugin-syntax-dynamic-import",
+                                    ["import", { libraryName: "antd-mobile", style: true }]],
                                 cacheDirectory: true
                             },
-
                         }
                     ]
 
+                },
+                {
+                    test: /\.(css)$/,
+                    loader: "css-loader"
                 },
                 {
                     test: /\.(less)$/,
                     use: [
                         MiniCssExtractPlugin.loader,
                         {
-                            loader: 'css-loader', options: {
-                                modules: true,
+                            loader: 'css-loader'
+                            , options: {
+                                modules: false,
                                 localIdentName: '[local]--[hash:base64:5]'
                             }
                         },
                         { loader: 'postcss-loader' },
-                        { loader: 'less-loader' }
+                        {
+                            loader: 'less-loader',
+                            options: { javascriptEnabled: true }
+                        }
                     ]
                 },
                 {
@@ -116,7 +124,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './public/index.html',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -158,5 +166,4 @@ module.exports = {
             chunks: 'all'
         }
     }
-
 }

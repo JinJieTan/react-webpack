@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const os = require('os')
 module.exports = {
     entry: {
-        app: ['./src/index.js', './src/index.html'],
+        app: ['babel-polyfill','./src/index.js'],
         vendor: ['react',]
     },
     output: {
@@ -38,7 +38,11 @@ module.exports = {
                             loader: 'babel-loader',
                             options: {
                                 presets: ["@babel/preset-react", ["@babel/preset-env", { "modules": false }]],
-                                plugins: ["@babel/plugin-syntax-dynamic-import"],
+                                plugins: [
+                                    "@babel/plugin-syntax-dynamic-import",
+                                    ["import", { libraryName: "antd-mobile", style: true }],
+                                    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+                                ],
                                 cacheDirectory: true
                             },
 
@@ -47,16 +51,24 @@ module.exports = {
 
                 },
                 {
+                    test: /\.(css)$/,
+                    loader: "css-loader"
+                },
+                {
                     test: /\.(less)$/,
                     use: [
                         { loader: 'style-loader' },
                         {
-                            loader: 'css-loader', options: {
-                                modules: true,
+                            loader: 'css-loader'
+                            , options: {
+                                modules: false,
                                 localIdentName: '[local]--[hash:base64:5]'
                             }
                         },
-                        { loader: 'less-loader' }
+                        {
+                            loader: 'less-loader',
+                            options: { javascriptEnabled: true }
+                        }
                     ]
                 }, {
                     test: /\.(jpg|jpeg|bmp|svg|png|webp|gif)$/,
@@ -79,7 +91,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './public/index.html'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
@@ -88,10 +100,10 @@ module.exports = {
     devServer: {
         contentBase: '../build',
         open: true,
-        port: 3000,
+        port: 5000,
         hot: true
     },
     resolve: {
         extensions: [".js", ".json", ".jsx"]
     }
-}
+}   
