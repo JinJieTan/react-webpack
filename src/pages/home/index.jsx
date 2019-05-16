@@ -38,7 +38,7 @@ class App extends React.Component {
                         <li className="item4">享</li>
                         <li><i className="material-icons">face</i></li>
                     </ul>
-                    <Carousel className="my-carousel"
+                    <Carousel className="my-carousels"
                         vertical
                         dots={false}
                         dragging={false}
