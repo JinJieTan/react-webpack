@@ -40,7 +40,7 @@ function TitleColor(prevState, action) {
             return 'transparent'
             break;
         case TitleColorWhite:
-            return 'skyblue'
+            return 'teal'
             break;
         default:
             return 'transparent'

@@ -1,4 +1,4 @@
-import { reqSlides, reqIndexActivityModule, reqKingKongModule, reqCategoryModule } from '../api'
+import { reqSlides, reqIndexActivityModule, reqKingKongModule, reqCategoryModule, reqTagList } from '../api'
 import { slides, IndexActivityModules, KingKongModules, CategoryModules, TitleColorTransparent, TitleColorWhite } from './actions-types'
 
 //同步将数据传递给reducers
@@ -51,25 +51,25 @@ export const AsyncCategoryModule = () => {
 
 // 同步将title的颜色数据传递给reducers 
 export const TitleColorTransparents = (data) => {
-        console.log('transparent')
-        return { type: TitleColorTransparent, data }
+    return { type: TitleColorTransparent, data }
 }
 
 export const TitleColorRed = (data) => {
-        console.log('red')
-        return { type: TitleColorWhite, data }
+    return { type: TitleColorWhite, data }
 }
-
+//修改title的颜色
 export const AsyncTitleColor = (data) => {
-    console.log(`data:${data}`)
-    return (dispatch)=>{
+    return (dispatch) => {
         if (data === "transparent") {
-            console.log('transparent')
             dispatch(TitleColorTransparents(data))
-        } else if(data === "red"){
-            console.log('red')
+        } else if (data === "red") {
             dispatch(TitleColorRed(data))
         }
     }
-    
+
 }
+ 
+
+
+// 请求第三页拼购的数据 
+
