@@ -12,36 +12,37 @@ class App extends React.PureComponent {
         if (arr) {
             arr.forEach(item => {
                 new Bscroll(item, {
-                    scrollX: true
+                    scrollX: true,
+                    scrollY: false
                 })
             })
         }
     }
     render() {
         const { categorys } = this.props
-
+        
         return (
-            <div className="categorys">
-                {categorys.map((item, index) => {
-                    return (
-                        <div key={index} className="category-container">
-                            <img src={item.titlePicUrl} alt="" />
-                            <div className="swiper-wrap">
-                                <div className="subList">
-                                    {item.itemList.map((li) => {
-                                        return (
-                                            <div className="itemList" key={li.id}>
-                                                <img src={li.scenePicUrl} />
-                                                <span>{item.tagName}</span>
-                                            </div>
-                                        )
-                                    })}
+                <div className="categorys">
+                    {categorys.map((item, index) => {
+                        return (
+                            <div key={index} className="category-container">
+                                <img src={item.titlePicUrl} alt="" />
+                                <div className="swiper-wrap">
+                                    <div className="subList">
+                                        {item.itemList.map((li) => {
+                                            return (
+                                                <div className="itemList" key={li.id}>
+                                                    <img src={li.scenePicUrl} height={200} offset={150} />
+                                                    <span>{li.name}</span>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                })}
-            </div>
+                        )
+                    })}
+                </div>
         )
     }
 }
@@ -54,6 +55,5 @@ export default connect(
             const action = AsyncCategoryModule();
             dispatch(action)
         },
-
     })
 )(App)

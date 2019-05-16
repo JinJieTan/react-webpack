@@ -3,10 +3,11 @@ import { Tabs, Badge, Carousel } from 'antd-mobile'
 import BScroll from 'better-scroll'
 import Slide from './slide'
 import { connect } from 'react-redux'
-import { AsyncIndexActivityModule } from '../../redux-file/actions-creators'
+import { AsyncIndexActivityModule , AsyncTitleColor } from '../../redux-file/actions-creators'
 import Kingkong from './kingkongmodule'
 import Categorys from './categorys'
 import "./index.less"
+
 const tabs = [
     { title: <Badge text={'3'}>今日推荐</Badge> },
     { title: <Badge text={'今日(20)'}>今日热卖</Badge> },
@@ -19,10 +20,21 @@ class App extends React.Component {
     }
     componentDidMount() {
         this.props.IndexActivityModule()
-        this.myScroll = new BScroll(this.wrap.current, {
+        const myScroll = new BScroll(this.wrap.current, {
             bounce: false,
             scrollbar: true,
-            click: true
+            click: true,
+            probeType:3
+        })
+        myScroll.on('scroll', (e) => {
+            console.log(e)
+            if (e.y < -130) {
+                console.log('push red')
+             this.props.TitleColor('red')
+            }else if(e.y > -130){
+                console.log('push transparent')
+                this.props.TitleColor('transparent')
+            }
         })
     }
     render() {
@@ -49,7 +61,7 @@ class App extends React.Component {
                         autoplayInterval={400}
                         resetAutoplay={false}
                     >
-                        {['苹果x', '华为p30', 'Mac', 'iPod', 'CK', 'Hemers'].map(type => (
+                        {['抽奖：苹果x', '抽奖：华为p30', '抽奖：Mac', '抽奖：iPod', '抽奖：CK', '抽奖：Hemers'].map(type => (
                             <div className="v-item" key={type}>{type}</div>
                         ))}
                     </Carousel>
@@ -64,7 +76,7 @@ class App extends React.Component {
                                         className="slide-container"
                                     >
                                         <img src={item.picUrl} />
-                                        </div>
+                                    </div>
                                 )
                             })
                         }
@@ -87,6 +99,11 @@ export default connect(
             const action = AsyncIndexActivityModule();
             dispatch(action)
         },
+        TitleColor(data){
+            const action = AsyncTitleColor(data)
+            dispatch(action)
+        }
+
     })
 )(App)
 

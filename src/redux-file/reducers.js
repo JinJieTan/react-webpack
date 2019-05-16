@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { slides, IndexActivityModules, KingKongModules, CategoryModules } from './actions-types'
+import { slides, IndexActivityModules, KingKongModules, CategoryModules, TitleColorTransparent, TitleColorWhite } from './actions-types'
 function slide(prevState, action) {
     switch (action.type) {
         case slides:
@@ -34,9 +34,22 @@ function CategoryModule(prevState, action) {
             return prevState || []
     }
 }
+function TitleColor(prevState, action) {
+    switch (action.type) {
+        case TitleColorTransparent:
+            return 'transparent'
+            break;
+        case TitleColorWhite:
+            return 'skyblue'
+            break;
+        default:
+            return 'transparent'
+    }
+}
 export default combineReducers({
     slide,
     IndexActivityModule,
     KingKong,
-    CategoryModule
+    CategoryModule,
+    TitleColor
 })

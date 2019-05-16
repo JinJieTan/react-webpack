@@ -1,5 +1,5 @@
 import { reqSlides, reqIndexActivityModule, reqKingKongModule, reqCategoryModule } from '../api'
-import { slides, IndexActivityModules, KingKongModules, CategoryModules } from './actions-types'
+import { slides, IndexActivityModules, KingKongModules, CategoryModules, TitleColorTransparent, TitleColorWhite } from './actions-types'
 
 //同步将数据传递给reducers
 export const IndexActivityModule = (data) => {
@@ -47,4 +47,29 @@ export const AsyncCategoryModule = () => {
         const result = await reqCategoryModule()
         dispatch(CategoryModule(result.data))
     }
+}
+
+// 同步将title的颜色数据传递给reducers 
+export const TitleColorTransparents = (data) => {
+        console.log('transparent')
+        return { type: TitleColorTransparent, data }
+}
+
+export const TitleColorRed = (data) => {
+        console.log('red')
+        return { type: TitleColorWhite, data }
+}
+
+export const AsyncTitleColor = (data) => {
+    console.log(`data:${data}`)
+    return (dispatch)=>{
+        if (data === "transparent") {
+            console.log('transparent')
+            dispatch(TitleColorTransparents(data))
+        } else if(data === "red"){
+            console.log('red')
+            dispatch(TitleColorRed(data))
+        }
+    }
+    
 }

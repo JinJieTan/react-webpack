@@ -2,6 +2,7 @@ import React from 'react'
 import { SearchBar } from 'antd-mobile';
 import './index.less'
 import { withRouter } from 'react-router-dom'
+import {connect} from 'react-redux'
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -24,15 +25,18 @@ class App extends React.Component {
 
     render() {
         const { isShow } = this.state
+        const {color} = this.props
         return (
-            <div className="title-container">
+            <div className="title-container" style={{backgroundColor:color }}>
                 {isShow ? <i className="material-icons " >subject</i> : ''}
                 <div className="title-input">
                     <SearchBar placeholder="全民湿巾品牌" maxLength={8} onFocus={this.Focus} onCancel={this.cancel} />
                 </div>
-                {isShow ? <div><span className="deng">登</span><span className="lu">录</span></div> : ''}
+                {isShow ? <i className="material-icons ">cloud_queue</i> : ''}
             </div>
         )
     }
 }
-export default withRouter(App)
+export default connect(
+    (state)=>({color:state.TitleColor})
+)(withRouter(App))
