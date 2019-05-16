@@ -1,5 +1,5 @@
-import { reqSlides, reqIndexActivityModule ,reqKingKongModule } from '../api'
-import { slides, IndexActivityModules ,KingKongModules } from './actions-types'
+import { reqSlides, reqIndexActivityModule, reqKingKongModule, reqCategoryModule } from '../api'
+import { slides, IndexActivityModules, KingKongModules, CategoryModules } from './actions-types'
 
 //同步将数据传递给reducers
 export const IndexActivityModule = (data) => {
@@ -27,7 +27,6 @@ export const AsyncSlide = () => {
 
 // 同步将数据传递给reducers
 export const KingKongModule = (data) => {
-    console.log('KingKongModule')
     return { type: KingKongModules, data }
 }
 //异步获取slide下面十张图片的数据
@@ -35,5 +34,17 @@ export const AsyncKingKongModule = () => {
     return async (dispatch) => {
         const result = await reqKingKongModule()
         dispatch(KingKongModule(result.data))
+    }
+}
+
+// 同步将数据传递给reducers
+export const CategoryModule = (data) => {
+    return { type: CategoryModules, data }
+}
+//异步获取categorymodules的数据
+export const AsyncCategoryModule = () => {
+    return async (dispatch) => {
+        const result = await reqCategoryModule()
+        dispatch(CategoryModule(result.data))
     }
 }

@@ -8,8 +8,8 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 const os = require('os')
 module.exports = {
     entry: {
-        app: ['babel-polifill', './src/index.js'],
-        vendor: ['react']
+        app: ['babel-polyfill', './src/index.js', './src/pages/home/index.jsx',],
+        vendor: ['react','better-scroll', 'react-redux','react-lazyload']
     },
     output: {
         filename: '[name].[contenthash:8].js',
@@ -41,8 +41,11 @@ module.exports = {
                             loader: 'babel-loader',
                             options: {
                                 presets: ["@babel/preset-react", ["@babel/preset-env", { "modules": false }]],
-                                plugins: ["@babel/plugin-syntax-dynamic-import",
-                                    ["import", { libraryName: "antd-mobile", style: true }]],
+                                plugins: [
+                                    "@babel/plugin-syntax-dynamic-import",
+                                    ["import", { libraryName: "antd-mobile", style: true }],
+                                    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+                                ],
                                 cacheDirectory: true
                             },
                         }

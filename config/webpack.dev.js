@@ -1,11 +1,12 @@
-const { resolve } = require('path');
+const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const os = require('os')
 module.exports = {
     entry: {
-        app: ['babel-polyfill', './src/index.js'],
-        vendor: ['react',]
+        app: ['babel-polyfill', './src/index.js', './src/pages/home/index.jsx', './src/pages/home/categorys/index.jsx'],
+        vendor: ['react', 'better-scroll', 'react-redux', 'react-lazyload']
     },
     output: {
         filename: '[name].[hash:8].js',
@@ -101,5 +102,11 @@ module.exports = {
     },
     resolve: {
         extensions: [".js", ".json", ".jsx"]
+    },
+    optimization: {
+        runtimeChunk: true,
+        splitChunks: {
+            chunks: 'all'
+        }
     }
 }   
