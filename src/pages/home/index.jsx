@@ -38,7 +38,7 @@ class App extends React.Component {
                         <li className="item4">享</li>
                         <li><i className="material-icons">face</i></li>
                     </ul>
-                    <Carousel className="my-carousels"
+                    <Carousel className="my-carousels test"
                         vertical
                         dots={false}
                         dragging={false}
@@ -64,9 +64,7 @@ class App extends React.Component {
                                         className="slide-container"
                                     >
                                         <img src={item.picUrl} />
-                                        <i className="material-icons">
-                                            today
-                        </i></div>
+                                        </div>
                                 )
                             })
                         }
