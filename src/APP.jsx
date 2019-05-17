@@ -7,14 +7,26 @@ import Shopcart from './pages/shopcart'
 import Person from './pages/person'
 import Search from './pages/search'
 import Shop from './pages/shop'
-
+import { withRouter } from 'react-router-dom'
 import { NavLink, Switch, Route, Redirect } from 'react-router-dom'
-export default class App extends React.Component {
+//第二页，分类模块的文件使用react-loadable按需加载并且代码分割
+class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            showSearchArr: ['/home', '/category', '/buy', 'shopcart', 'person', '/search'],
+        }
+    }
     render() {
+        let showFooter = true
+        const { pathname } = this.props.location
+        const { showSearchArr } = this.state
+        if (!showSearchArr.find((item) => item === pathname)) {
+            showFooter = false
+        }
         return (
             <div className="wrap">
                 <header className="Title"><Title></Title></header>
-                
                 <div className="content">
                     <Switch>
                         <Route path="/home" component={Home}></Route>
@@ -27,7 +39,7 @@ export default class App extends React.Component {
                         <Redirect to="/home"></Redirect>
                     </Switch>
                 </div>
-                <footer className="footer">
+                {showFooter ? <footer className="footer">
                     <NavLink to="/home" activeClassName="active" className="link">
                         <i className="material-icons">
                             favorite_border
@@ -57,8 +69,9 @@ export default class App extends React.Component {
                             account_box
                         </i>
                         <span>个人</span></NavLink>
-                </footer>
+                </footer> : null}
             </div>
         )
     }
 }
+export default withRouter(App)

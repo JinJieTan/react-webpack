@@ -1,5 +1,20 @@
-import { reqSlides, reqIndexActivityModule, reqKingKongModule, reqCategoryModule, reqTagList } from '../api'
-import { slides, IndexActivityModules, KingKongModules, CategoryModules, TitleColorTransparent, TitleColorWhite } from './actions-types'
+import {
+    reqSlides,
+    reqIndexActivityModule,
+    reqKingKongModule,
+    reqCategoryModule,
+    reqTagList
+} from '../api'
+import {
+    slides,
+    IndexActivityModules,
+    shopcartDel,
+    shopcartAdd,
+    KingKongModules,
+    CategoryModules,
+    TitleColorTransparent,
+    TitleColorWhite
+} from './actions-types'
 
 //同步将数据传递给reducers
 export const IndexActivityModule = (data) => {
@@ -68,7 +83,21 @@ export const AsyncTitleColor = (data) => {
     }
 
 }
- 
+
+//向购物车中添加或者删除内容，传入数据就增，不传入就默认减去购物车最后一条内容 功能慢慢迭代
+export const shopcart=(data)=>{
+    if(data){
+        return{
+            type:shopcartAdd,
+            data:data
+        }
+    }else{
+        return{
+            type:shopcartDel,
+            data:''
+        }
+    }
+}
 
 
 // 请求第三页拼购的数据 

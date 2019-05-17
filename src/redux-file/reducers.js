@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-import { slides, IndexActivityModules, KingKongModules, CategoryModules, TitleColorTransparent, TitleColorWhite } from './actions-types'
+import { slides, IndexActivityModules, KingKongModules, shopcartAdd, shopcartDel, CategoryModules, TitleColorTransparent, TitleColorWhite } from './actions-types'
+
+//处理首页走马灯内容
 function slide(prevState, action) {
     switch (action.type) {
         case slides:
@@ -8,6 +10,7 @@ function slide(prevState, action) {
             return prevState || []
     }
 }
+//首页navigationbar的内容 
 function IndexActivityModule(prevState, action) {
     switch (action.type) {
         case IndexActivityModules:
@@ -16,6 +19,7 @@ function IndexActivityModule(prevState, action) {
             return prevState || []
     }
 }
+//首页8张小图片的内容~
 function KingKong(prevState, action) {
     switch (action.type) {
         case KingKongModules:
@@ -25,6 +29,7 @@ function KingKong(prevState, action) {
             return prevState || []
     }
 }
+//第二页的数据，已经删减大部分 
 function CategoryModule(prevState, action) {
     switch (action.type) {
         case CategoryModules:
@@ -34,6 +39,7 @@ function CategoryModule(prevState, action) {
             return prevState || []
     }
 }
+//首页头部的颜色随着滑动的距离变化
 function TitleColor(prevState, action) {
     switch (action.type) {
         case TitleColorTransparent:
@@ -46,10 +52,25 @@ function TitleColor(prevState, action) {
             return 'transparent'
     }
 }
+//购物车里面的内容 初始为空数组   定义删减购物车的内容 
+function shopcartArr(prevState, action) {
+    switch (action.type) {
+        case shopcartAdd:
+            return [...prevState, action.data]
+            break;
+        case shopcartDel:
+            return prevState.pop() || []
+            break;
+        default:
+            return prevState || []
+    }
+}
+
 export default combineReducers({
     slide,
     IndexActivityModule,
     KingKong,
     CategoryModule,
-    TitleColor
+    TitleColor,
+    shopcartArr
 })
