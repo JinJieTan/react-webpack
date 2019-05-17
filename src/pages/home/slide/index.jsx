@@ -1,7 +1,8 @@
-import React,{PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import { Carousel } from 'antd-mobile'
 import { connect } from 'react-redux'
 import { AsyncSlide } from '../../../redux-file/actions-creators'
+import LazyLoad from 'react-lazyload';
 import './index.less'
 class App extends PureComponent {
     state = {
@@ -12,30 +13,33 @@ class App extends PureComponent {
     }
     
     render() {
-        const {slide} = this.props
+        const { slide } = this.props
         return (
             <Carousel
-                autoplay={true}
                 infinite
             >
-                {slide? slide.map((item,index) => (
-                    <img
+                {slide.length ? slide.map((item, index) => (
+                    <LazyLoad     key={index} height={200}> <img
                         src={item}
-                        key={index}
+                     
                         alt=""
                         style={{ width: '100%', verticalAlign: 'top' }}
-                    />
-                )):"" }
+                    /></LazyLoad>
+
+                )) :
+                    <div className="slide-mock">
+                    </div>
+                }
             </Carousel>
         )
     }
 }
 export default connect(
     (state) => ({ slide: state.slide }),
-    (dispatch) =>({
+    (dispatch) => ({
         reqSlide() {
             const action = AsyncSlide()
             dispatch(action)
         }
-        })
+    })
 )(App)

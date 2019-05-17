@@ -8,44 +8,53 @@ class App extends PureComponent {
         this.props.reqCategoryModule()
     }
     componentDidUpdate() {
+
+    }
+    componentDidUpdate() {
         const arr = document.querySelectorAll('.swiper-wrap')
-        new Bscroll(document.querySelector('.categorys'))
-        if (arr) {
-            arr.forEach(item => {
-                new Bscroll(item, {
-                    scrollX: true,
-                    scrollY: false 
+        if (!this.myScroll) {
+            this.myScroll = new Bscroll(document.querySelector('.categorys'))
+            if (arr) {
+                arr.forEach(item => {
+                    new Bscroll(item, {
+                        scrollX: true,
+                        scrollY: false
+                    })
                 })
-            })
+            }
         }
+        this.myScroll.refresh()
+
     }
     render() {
         const { categorys } = this.props
-        
+        if (this.myScroll) {
+            this.myScroll.refresh()
+        }
         return (
             <div className="categorys">
                 <div>
-                {categorys.map((item, index) => {
-                    return (
-                        <div key={index} className="category-container">
-                            <img src={item.titlePicUrl} alt="" />
-                            <div className="swiper-wrap">
-                                <div className="subList">
-                                    {item.itemList.map((li) => {
-                                        return (
-                                            <div className="itemList" key={li.id}>
-                                                <img src={li.scenePicUrl} height={200} offset={150} />
-                                                <span>{li.name}</span>
-                                            </div>
-                                        )
-                                    })}
+                    {categorys.map((item, index) => {
+                        return (
+                            <div key={index} className="category-container">
+                                <img src={item.titlePicUrl} alt="" />
+                                <div className="swiper-wrap">
+                                    <div className="subList">
+                                        {item.itemList.map((li) => {
+                                            return (
+                                                <div className="itemList" key={li.id}>
+                                                    <img src={li.scenePicUrl} height={200} offset={150} />
+                                                    <span>{li.name}</span>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
                                 </div>
                             </div>
+                        )
+                    })}
                 </div>
-    )
-})}
-                </div>
-                
+
             </div>
         )
     }
