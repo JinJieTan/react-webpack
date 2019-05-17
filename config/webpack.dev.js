@@ -1,7 +1,6 @@
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const os = require('os')
 module.exports = {
     entry: {
@@ -37,16 +36,20 @@ module.exports = {
                         },
                         {
                             loader: 'babel-loader',
-                            options: {
-                                presets: ["@babel/preset-react", ["@babel/preset-env", { "modules": false }]],
+                            options: {   //jsx语法
+                                presets: ["@babel/preset-react",
+                                    //tree shaking 按需加载babel-polifill
+                                    ["@babel/preset-env", { "modules": false, "useBuiltIns": "false", "corejs": 2 }]],
                                 plugins: [
+                                    //支持import 懒加载 
                                     "@babel/plugin-syntax-dynamic-import",
+                                    //andt-mobile按需加载  true是less，如果不用less style的值可以写'css' 
                                     ["import", { libraryName: "antd-mobile", style: true }],
+                                    //识别class组件
                                     ["@babel/plugin-proposal-class-properties", { "loose": true }],
                                 ],
                                 cacheDirectory: true
                             },
-
                         }
                     ]
 

@@ -46,7 +46,7 @@ function TitleColor(prevState, action) {
             return 'transparent'
             break;
         case TitleColorWhite:
-            return 'teal'
+            return '#cd2525'
             break;
         default:
             return 'transparent'

@@ -9,6 +9,7 @@
         "@babel/plugin-transform-runtime": "^7.4.4",
         "@babel/preset-env": "^7.4.4",
         "@babel/preset-react": "^7.0.0",
+        "@babel/runtime-corejs2": "^7.4.4",
         "antd-mobile": "^2.2.13",
         "autoprefixer": "^9.5.1",
         "axios": "^0.18.0",
@@ -19,6 +20,7 @@
         "babel-polyfill": "^6.26.0",
         "better-scroll": "^1.15.2",
         "clean-webpack-plugin": "^2.0.2",
+        "core-js": "2",
         "css-loader": "^2.1.1",
         "eslint": "^5.16.0",
         "eslint-loader": "^2.1.2",
@@ -70,6 +72,6 @@
     },
     "theme": {
         "brand-primary": "red",
-        "color-text-base":  "#333"
-    } 
+        "color-text-base": "#333"
+    }
 }

@@ -9,7 +9,7 @@ const os = require('os')
 module.exports = {
     entry: {
         app: ['babel-polyfill', './src/index.js', './src/pages/home/index.jsx',],
-        vendor: ['react','better-scroll', 'react-redux','react-lazyload']
+        vendor: ['react', 'better-scroll', 'react-redux', 'react-lazyload']
     },
     output: {
         filename: '[name].[contenthash:8].js',
@@ -40,9 +40,13 @@ module.exports = {
                         }, {
                             loader: 'babel-loader',
                             options: {
-                                presets: ["@babel/preset-react", ["@babel/preset-env", { "modules": false }]],
+                                presets: ["@babel/preset-react",
+                                    //tree shaking 按需加载babel-polifill
+                                    ["@babel/preset-env", { "modules": false, "useBuiltIns": "false", "corejs": 2 }]],
                                 plugins: [
+                                    //支持
                                     "@babel/plugin-syntax-dynamic-import",
+                                    //true是less， 可以写'css' 如果不用less
                                     ["import", { libraryName: "antd-mobile", style: true }],
                                     ["@babel/plugin-proposal-class-properties", { "loose": true }],
                                 ],

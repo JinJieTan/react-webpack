@@ -86,7 +86,7 @@ export const AsyncTitleColor = (data) => {
 
 //向购物车中添加或者删除内容，传入数据就增，不传入就默认减去购物车最后一条内容 功能慢慢迭代
 export const shopcart=(data)=>{
-    if(data){
+    if(data){ 
         return{
             type:shopcartAdd,
             data:data
