@@ -2,6 +2,7 @@
 
 # 包管理器使用yarn,下载后 yarn init ,然后 yarn 即可获取所有依赖
 
+* 项目是移动端react antd-mobile better-scorll material-design redux react-redux  的结合  
 React的最新配置
 * 实现需求：
   * 识别JSX文件
