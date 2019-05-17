@@ -21,7 +21,7 @@ class App extends PureComponent {
     }
     render() {
         const { categorys } = this.props
-
+        
         return (
             <div className="categorys">
                 <div>

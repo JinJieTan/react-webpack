@@ -6,12 +6,15 @@ import Buy from './pages/buy'
 import Shopcart from './pages/shopcart'
 import Person from './pages/person'
 import Search from './pages/search'
+import Shop from './pages/shop'
+
 import { NavLink, Switch, Route, Redirect } from 'react-router-dom'
 export default class App extends React.Component {
     render() {
         return (
             <div className="wrap">
                 <header className="Title"><Title></Title></header>
+                
                 <div className="content">
                     <Switch>
                         <Route path="/home" component={Home}></Route>
@@ -20,6 +23,7 @@ export default class App extends React.Component {
                         <Route path="/shopcart" component={Shopcart}></Route>
                         <Route path="/person" component={Person}></Route>
                         <Route path="/search" component={Search}></Route>
+                        <Route path="/shop" component={Shop}></Route>
                         <Redirect to="/home"></Redirect>
                     </Switch>
                 </div>

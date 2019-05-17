@@ -33,61 +33,102 @@
                 "picUrl": "http://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1005000&style=pd",
                 "text": "居家生活",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"199",
+                "adress":"华南大区-广州",
+                "nowPrice":"99"
+
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/fb9dde0c1593536c18c8e12b6f49eb17.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1008000&style=pd",
                 "text": "服饰鞋包",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"112",
+                "adress":"华东大区-上海",
+                "nowPrice":"87"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/d916591adea776351e084016335e5820.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1010000&style=pd",
                 "text": "美食酒水",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"129",
+                "adress":"华南大区-深圳",
+                "nowPrice":"95"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/6c3bd9d885c818b1f73e497335a68b47.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1043000&style=pd",
                 "text": "个护清洁",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"196",
+                "adress":"华南大区-深圳",
+                "nowPrice":"45"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/63682bd2df06963251b2715e20f98a75.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1011000&style=pd",
                 "text": "限时购",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"96",
+                "adress":"华南大区-东莞",
+                "nowPrice":"69"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/559d2a240ec20b096590a902217009ff.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1005002&style=pd",
                 "text": "母婴亲子",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"122",
+                "adress":"华南大区-深圳",
+                "nowPrice":"45"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/5c088559ebcc3f0ffcda663f04dfbeb2.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1013001&style=pd",
                 "text": "运动旅行",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"141",
+                "adress":"华南大区-澳门",
+                "nowPrice":"35"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/47e953a95e4378907b131205ce3cbc45.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1005001&style=pd",
                 "text": "数码家电",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"99",
+                "adress":"华南大区-香港",
+                "nowPrice":"59"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/fbca8e1f2948f0c09fc7672c2c125384.png",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1019000&style=pd",
                 "text": "全球特色",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"129",
+                "adress":"华南大区-福州",
+                "nowPrice":"88"
             },
             {
                 "picUrl": "http://yanxuan.nosdn.127.net/861a521a6f53e3399205f18daa23cddc.gif",
                 "schemeUrl": "http://m.you.163.com/item/list?categoryId=1065000&style=pd",
                 "text": "超级会员",
-                "textColor": "333333"
+                "textColor": "333333",
+                "desc":"48小时快速退款",
+                "oldPrice":"49",
+                "adress":"华南大区-莆田",
+                "nowPrice":"29"
             }
         ],
         "selectedColor": "ffffffff"

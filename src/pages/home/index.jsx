@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Badge, Carousel } from 'antd-mobile'
+import { Tabs, Badge, Carousel ,NoticeBar} from 'antd-mobile'
 import BScroll from 'better-scroll'
 import Slide from './slide'
 import { connect } from 'react-redux'
@@ -36,11 +36,13 @@ class App extends React.Component {
     }
     render() {
         const { data } = this.props
-        if(this.myScroll){
-            this.myScroll.refresh()}
+        
         return (
             <div className="content-wrap" ref={this.wrap}>
                 <div className="content-inner">
+                <NoticeBar mode="closable" action={<span style={{ color: '#a1a1a1' }}>不再提示</span>}>
+                京东&nbsp;618&nbsp;特价即将来袭 请下载App准备~
+                </NoticeBar>
                     <ul className="list">
                         <li><i className="material-icons "  >face</i></li>
                         <li className="item1">京</li>
@@ -84,9 +86,7 @@ class App extends React.Component {
                         <img src="//m.360buyimg.com/mobilecms/jfs/t29767/238/1280638669/118489/8915d2f5/5cdbb7fdNa69c9be3.gif" alt="" />
                     </div>
                     <Slide></Slide>
-                    
                     <Kingkong></Kingkong>
-                    
 
                 </div>
             </div>

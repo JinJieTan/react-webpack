@@ -67,5 +67,9 @@
     },
     "devDependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.2.0"
+    },
+    "theme": {
+        "brand-primary": "red",
+        "color-text-base":  "#333"
     }
 }
