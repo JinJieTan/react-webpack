@@ -5,11 +5,12 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
 const os = require('os')
 module.exports = {
     entry: {
         app: ['babel-polyfill', './src/index.js', './src/pages/home/index.jsx',],
-        vendor: ['react', 'better-scroll', 'react-redux', 'react-lazyload']
+        vendor: ['react', 'better-scroll', 'react-redux']
     },
     output: {
         filename: '[name].[contenthash:8].js',
@@ -68,7 +69,7 @@ module.exports = {
                             loader: 'css-loader'
                             , options: {
                                 modules: false,
-                                localIdentName: '[local]--[hash:base64:5]'
+                                localIdentName: '[local]--[hash:base64:5]',
                             }
                         },
                         { loader: 'postcss-loader' },
@@ -161,7 +162,24 @@ module.exports = {
                 preset: ['default', { discardComments: { removeAll: true } }]
             }
         }),
-        new webpack.HashedModuleIdsPlugin()
+        new webpack.HashedModuleIdsPlugin(),
+        // new PrerenderSPAPlugin({ 
+        //     // 生成文件的路径，也可以与webpakc打包的一致。
+        //     // 下面这句话非常重要！！！
+        //     // 这个目录只能有一级，如果目录层次大于一级，在生成的时候不会有任何错误提示，在预渲染的时候只会卡着不动。
+        //     staticDir: resolve(__dirname, '../dist'),
+        //     // 对应自己的路由文件，比如a有参数，就需要写成 /a/param1。
+        //     routes: ["/", "/home", "/buy"],
+        //     // 这个很重要，如果没有配置这段，也不会进行预编译
+        //     renderer: new Renderer({
+        //         inject: {
+        //             foo: "bar"
+        //         },
+        //         headless: true,
+        //         // 在 main.js 中 document.dispatchEvent(new Event('render-event'))，两者的事件名称要对应上。
+        //         renderAfterDocumentEvent: "render-event"
+        //     })
+        // })
     ],
     mode: 'production',
     resolve: {

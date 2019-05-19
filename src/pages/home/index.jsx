@@ -5,7 +5,6 @@ import Slide from './slide'
 import { connect } from 'react-redux'
 import { AsyncIndexActivityModule, AsyncTitleColor } from '../../redux-file/actions-creators'
 import Kingkong from './kingkongmodule'
-
 import "./index.less"
 const tabs = [
     { title: <Badge text={'3'}>今日推荐</Badge> },
@@ -19,20 +18,23 @@ class App extends React.Component {
     }
     componentDidMount() {
         this.props.IndexActivityModule()
+        this.myScroll = new BScroll(this.wrap.current, {
+            bounce: false,
+            scrollbar: true,
+            probeType: 2,
+            click: true, pullUpLoad: {
+                threshold: 50
+            }
+        })
 
     }
-    componentDidUpdate() {
-        if (!this.myScroll) {
-            this.myScroll = new BScroll(this.wrap.current, {
-                bounce: false,
-                scrollbar: true,
-                probeType: 2,
-                click: true, pullUpLoad: {
-                    threshold: 50
-                }
-
-            })
+    refresh = () => {
+        if (this.myScroll) {
+            this.myScroll.refresh()
         }
+    }
+    componentDidUpdate() {
+        requestAnimationFrame(this.refresh)
         this.myScroll.on('scroll', (e) => {
             if (e.y < -130) {
                 this.props.TitleColor('red')
@@ -40,8 +42,8 @@ class App extends React.Component {
                 this.props.TitleColor('transparent')
             }
         })
-        this.myScroll.refresh()
     }
+
     render() {
         const { data } = this.props
         if (this.myScroll) {
@@ -97,8 +99,52 @@ class App extends React.Component {
                         <img src="//m.360buyimg.com/mobilecms/jfs/t29767/238/1280638669/118489/8915d2f5/5cdbb7fdNa69c9be3.gif" alt="" />
                     </div>
                     <Slide></Slide>
-                    <Kingkong></Kingkong>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div><div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
+                    <div>123</div>
 
+                    <Kingkong className="overflow"></Kingkong>
                 </div>
             </div>
         )

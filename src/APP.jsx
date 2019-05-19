@@ -17,6 +17,7 @@ class App extends React.Component {
             showSearchArr: ['/home', '/category', '/buy', 'shopcart', 'person', '/search'],
         }
     }
+   
     render() {
         let showFooter = true
         const { pathname } = this.props.location

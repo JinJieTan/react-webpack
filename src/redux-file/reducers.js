@@ -24,7 +24,6 @@ function KingKong(prevState, action) {
     switch (action.type) {
         case KingKongModules:
             return action.data
-            break;
         default:
             return prevState || []
     }
@@ -34,7 +33,6 @@ function CategoryModule(prevState, action) {
     switch (action.type) {
         case CategoryModules:
             return action.data
-            break;
         default:
             return prevState || []
     }
@@ -44,10 +42,8 @@ function TitleColor(prevState, action) {
     switch (action.type) {
         case TitleColorTransparent:
             return 'transparent'
-            break;
         case TitleColorWhite:
             return '#cd2525'
-            break;
         default:
             return 'transparent'
     }
@@ -57,10 +53,8 @@ function shopcartArr(prevState, action) {
     switch (action.type) {
         case shopcartAdd:
             return [...prevState, action.data]
-            break;
         case shopcartDel:
             return prevState.pop() || []
-            break;
         default:
             return prevState || []
     }

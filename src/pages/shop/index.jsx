@@ -19,10 +19,18 @@ class App extends React.Component {
             this.props.history.replace('/home')
             return null
         }
-        //有渲染时间差的问题 需要换成hooks
-        new Bscroll(document.querySelector('.shop-content'), {
+        //有渲染时间差的问题 需要换成hooks 这里使用requestAnimationFrame解决 代替vue的nextTicK()
+        this.scroll = new Bscroll(document.querySelector('.shop-content'), {
             click: true,
         })
+    }
+    refresh = () => {
+        if (this.scroll) {
+            this.scroll.refresh()
+        }
+    }
+    componentDidUpdate() {
+        requestAnimationFrame(this.refresh)
     }
     handle = () => {
         this.props.history.replace('/shopcart')
