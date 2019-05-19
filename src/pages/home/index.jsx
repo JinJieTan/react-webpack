@@ -5,6 +5,7 @@ import Slide from './slide'
 import { connect } from 'react-redux'
 import { AsyncIndexActivityModule, AsyncTitleColor } from '../../redux-file/actions-creators'
 import Kingkong from './kingkongmodule'
+import LazyLoad ,{forceCheck} from 'react-lazyload';
 import "./index.less"
 const tabs = [
     { title: <Badge text={'3'}>今日推荐</Badge> },
@@ -18,24 +19,26 @@ class App extends React.Component {
     }
     componentDidMount() {
         this.props.IndexActivityModule()
+        forceCheck()
         this.myScroll = new BScroll(this.wrap.current, {
             bounce: false,
             scrollbar: true,
-            probeType: 2,
+            probeType: 3,
             click: true, pullUpLoad: {
                 threshold: 50
             }
         })
-
     }
     refresh = () => {
         if (this.myScroll) {
             this.myScroll.refresh()
+            requestAnimationFrame(this.refresh)
         }
     }
     componentDidUpdate() {
         requestAnimationFrame(this.refresh)
         this.myScroll.on('scroll', (e) => {
+            forceCheck()
             if (e.y < -130) {
                 this.props.TitleColor('red')
             } else if (e.y > -130) {
@@ -98,7 +101,6 @@ class App extends React.Component {
                     <div className="main-gif">
                         <img src="//m.360buyimg.com/mobilecms/jfs/t29767/238/1280638669/118489/8915d2f5/5cdbb7fdNa69c9be3.gif" alt="" />
                     </div>
-                    <Slide></Slide>
                     <div>123</div>
                     <div>123</div>
                     <div>123</div>
@@ -143,8 +145,8 @@ class App extends React.Component {
                     <div>123</div>
                     <div>123</div>
                     <div>123</div>
-
-                    <Kingkong className="overflow"></Kingkong>
+                    <Slide></Slide>
+                    <Kingkong ></Kingkong>
                 </div>
             </div>
         )

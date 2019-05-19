@@ -7,7 +7,7 @@ import Shopcart from './pages/shopcart'
 import Person from './pages/person'
 import Search from './pages/search'
 import Shop from './pages/shop'
-import { withRouter } from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import { NavLink, Switch, Route, Redirect } from 'react-router-dom'
 //第二页，分类模块的文件使用react-loadable按需加载并且代码分割
 class App extends React.Component {

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Carousel } from 'antd-mobile'
 import { connect } from 'react-redux'
 import { AsyncSlide } from '../../../redux-file/actions-creators'
+import { lazyload } from 'react-lazyload';
 import './index.less'
 class App extends PureComponent {
     state = {
@@ -33,7 +34,10 @@ class App extends PureComponent {
         )
     }
 }
-export default connect(
+export default lazyload({
+    height: 200,
+    offset: 100
+  })(connect(
     (state) => ({ slide: state.slide }),
     (dispatch) => ({
         reqSlide() {
@@ -41,4 +45,4 @@ export default connect(
             dispatch(action)
         }
     })
-)(App)
+)(App))

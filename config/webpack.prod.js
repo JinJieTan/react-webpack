@@ -5,7 +5,8 @@ const WorkboxPlugin = require('workbox-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
-const PrerenderSpaPlugin = require('prerender-spa-plugin')
+// const PrerenderSPAPlugin = require('prerender-spa-plugin')
+// const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const os = require('os')
 module.exports = {
     entry: {
@@ -146,6 +147,16 @@ module.exports = {
                 minifyURLs: true,
             }
         }),
+        // new PreloadWebpackPlugin({
+        //     rel: 'preload',
+        //     as(entry) {
+        //       if (/\.css$/.test(entry)) return 'style';
+        //       if (/\.woff$/.test(entry)) return 'font';
+        //       if (/\.png$/.test(entry)) return 'image';
+        //       return 'script';
+        //     },
+        //     include: ['app']
+        //   }),
         new webpack.NamedModulesPlugin(),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
@@ -163,6 +174,10 @@ module.exports = {
             }
         }),
         new webpack.HashedModuleIdsPlugin(),
+        // new PrerenderSPAPlugin({
+        //     routes: ['/','/home','/shop'],
+        //     staticDir: resolve(__dirname, '../dist'),
+        //   }),
         // new PrerenderSPAPlugin({ 
         //     // 生成文件的路径，也可以与webpakc打包的一致。
         //     // 下面这句话非常重要！！！
