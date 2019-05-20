@@ -1,4 +1,7 @@
-# React-webpack
+# React-webpack   ------基于antd-mobile等库的一套移动端完美脚手架配置 
+
+ 
+## 超越京东的优化程度  首屏的load事件触发不到0.4s    
 
 # 包管理器使用yarn,下载后 yarn init ,然后 yarn 即可获取所有依赖
 
@@ -9,7 +12,8 @@ React的最新配置
   * 识别箭头函数、识别async函数 
   * 支持Ant-Design-mobile的按需加载
   * 支持babel-polyfill按需加载、better-scroll
-  * 支持预请求，服务端渲染的懒加载
+  * 支持预请求，服务端渲染的懒加载 
+  * 支持预渲染，SSR，服务端渲染首屏，首屏load事件仅需要0.4秒不到的时间 
   * tree shaking 摇树优化 删除掉无用代码
   * PWA功能，热刷新，安装后立即接管浏览器 离线后仍让可以访问网站 还可以在手机上添加网站到桌面使用
   * CSS模块化，不怕命名冲突
