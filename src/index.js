@@ -7,8 +7,8 @@ import { Provider } from 'react-redux'
 import './mock'
 import './assets/index.less'
 ReactDOM.render(
-    <HashRouter>
+    <BrowserRouter>
         <Provider store={store}><App ></App></Provider>
-    </HashRouter>,
+    </BrowserRouter>,
     document.querySelector('#root')
 )
