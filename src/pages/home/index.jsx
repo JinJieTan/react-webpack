@@ -144,7 +144,6 @@ class App extends React.Component {
                     <div>123</div>
                     <div>123</div>
                     <div>123</div>
-                    <div>123</div>
                     <Slide></Slide>
                     <Kingkong ></Kingkong>
                 </div>
