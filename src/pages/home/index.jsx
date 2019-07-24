@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Tabs, Badge, Carousel, NoticeBar } from 'antd-mobile';
+import { Tabs, Badge, Carousel, NoticeBar} from 'antd-mobile';
 import BScroll from 'better-scroll';
 import Slide from './slide';
 import { connect } from 'react-redux';
@@ -11,28 +11,12 @@ import Kingkong from './kingkongmodule';
 import LazyLoad, { forceCheck } from 'react-lazyload';
 import './index.less';
 import { FixedSizeList as List } from 'react-window';
-import Autosize from 'react-virtualized-auto-sizer';
 const tabs = [
   { title: <Badge text={'3'}>今日推荐</Badge> },
   { title: <Badge text={'今日(20)'}>今日热卖</Badge> },
   { title: <Badge z>折扣到底</Badge> }
 ];
-class Row extends PureComponent {
-  render() {
-    const { index, style } = this.props;
-    let label;
-    if (itemStatusMap[index] === LOADED) {
-      label = `Row ${index}`;
-    } else {
-      label = 'Loading...';
-    }
-    return (
-      <div className="ListItem" style={style}>
-        {label}
-      </div>
-    );
-  }
-}
+
 
 class App extends React.Component {
   constructor() {
@@ -137,19 +121,6 @@ class App extends React.Component {
               alt=""
             />
           </div>
-          <Autosize>
-            {({ height, width }) => (
-              <List
-                className="List"
-                height={height}
-                itemCount={1000}
-                itemSize={35}
-                width={width}
-              >
-                {Row}
-              </List>
-            )}
-          </Autosize>
           <Slide />
           <Kingkong />
         </div>

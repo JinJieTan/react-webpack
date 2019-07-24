@@ -3,21 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime-corejs2": "^7.4.4",
-    "antd-mobile": "^2.2.13",
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-import": "^1.11.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
-    "better-scroll": "^1.15.2",
     "clean-webpack-plugin": "^2.0.2",
     "core-js": "2",
     "css-loader": "^2.1.1",
@@ -35,7 +33,6 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.6.0",
-    "mockjs": "^1.0.1-beta3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "prerender-spa-plugin": "^3.4.0",
@@ -53,7 +50,10 @@
     "dev": "webpack-dev-server --config ./config/webpack.dev.js",
     "build": "webpack  --config  ./config/webpack.prod.js "
   },
-  "devDependencies": {
+  "dependencies": {
+    "antd-mobile": "^2.2.13",
+    "mockjs": "^1.0.1-beta3",
+    "better-scroll": "^1.15.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "pubsub-js": "^1.7.0",
     "react": "^16.8.6",
