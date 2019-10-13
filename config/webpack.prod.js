@@ -175,10 +175,10 @@ module.exports = {
             }
         }),
         new webpack.HashedModuleIdsPlugin(),
-        new PrerenderSPAPlugin({
-            routes: ['/','/home','/shop'],
-            staticDir: resolve(__dirname, '../dist'),
-          }),
+        // new PrerenderSPAPlugin({
+        //     routes: ['/','/home','/shop'],
+        //     staticDir: resolve(__dirname, '../dist'),
+        //   }),
     ],
     mode: 'production',
     resolve: {
