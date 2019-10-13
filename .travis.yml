@@ -1,12 +1,11 @@
 language: node_js
-node_js:
-  - "11"
+
 services:
   - docker
 
 before_install:
   - npm install
-  - npm install npm@6.4.1 -g 
+  - npm install -g npm
 
 script:
   - npm run build
