@@ -6,9 +6,8 @@ services:
 
 before_install:
   - npm install
-cache:
-  directories:
-    - "node_modules"
+  - npm install npm@6.4.1 -g 
+
 script:
   - npm run build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
