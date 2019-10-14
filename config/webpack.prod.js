@@ -188,11 +188,11 @@ module.exports = {
         preset: ['default', { discardComments: { removeAll: true } }]
       }
     }),
-    // new webpack.HashedModuleIdsPlugin()
-    // new PrerenderSPAPlugin({
-    //     routes: ['/','/home','/shop'],
-    //     staticDir: resolve(__dirname, '../dist'),
-    //   }),
+    new webpack.HashedModuleIdsPlugin(),
+    new PrerenderSPAPlugin({
+      routes: ['/', '/home', '/shop'],
+      staticDir: resolve(__dirname, '../dist')
+    })
   ],
   mode: 'production',
   resolve: {
