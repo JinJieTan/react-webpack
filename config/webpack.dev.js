@@ -50,7 +50,7 @@ module.exports = {
                     //tree shaking 按需加载babel-polifill
                     [
                       "@babel/preset-env",
-                      { modules: false, useBuiltIns: "false", corejs: 2 }
+                      { modules: false, useBuiltIns: "entry", corejs: 2 }
                     ]
                   ],
                   plugins: [
